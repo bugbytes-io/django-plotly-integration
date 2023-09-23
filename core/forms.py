@@ -1,5 +1,6 @@
 from django import forms
 
-class DateForm(forms.Form):
-    start = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    end = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+class PoolForm(forms.Form):
+    network = forms.DateField(widget=forms.TextInput())
+    token0 = forms.DateField(widget=forms.TextInput())
+    token1 = forms.DateField(widget=forms.TextInput())
