@@ -1,5 +1,7 @@
 FROM python:3.11
 
+EXPOSE 8000
+
 COPY requirements.txt /requirements.txt
 RUN python3 -m pip install -r /requirements.txt
 
