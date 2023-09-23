@@ -1,3 +1,5 @@
+minio
+pandas
 Django==4.0.3
 django-extensions==3.1.5
 plotly==5.6.0

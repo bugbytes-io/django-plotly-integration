@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <form method="GET" action="{% url 'chart' %}">
+        {{ form.as_p }}
+
+        <button>Submit</button>
+    </form>
+    
+    {{ feesUSD|safe }}
+    {{ tvlUSD|safe }}
+{% endblock content %}
