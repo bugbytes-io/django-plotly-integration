@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polls-app
+  labels:
+    app: polls
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: polls
+  template:
+    metadata:
+      labels:
+        app: polls
+    spec:
+      containers:
+        - image: dan1ar/info-stambul-ui:latest
+          name: polls
+          env:
+            - name: MINIO_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: info-secret
+                  key: MINIO_ENDPOINT
+            - name: ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: info-secret
+                  key: ACCESS_KEY
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: info-secret
+                  key: SECRET_KEY
+          ports:
+            - containerPort: 8000
+              name: gunicorn
