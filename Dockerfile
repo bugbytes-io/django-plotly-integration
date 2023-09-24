@@ -7,4 +7,4 @@ RUN python3 -m pip install -r /requirements.txt
 
 COPY . /info-stambul-ui
 
-CMD cd /info-stambul-ui && python3 manage.py runserver
+CMD cd /info-stambul-ui && python3 manage.py runserver 80
