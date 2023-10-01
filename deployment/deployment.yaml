@@ -70,4 +70,26 @@ spec:
   selector:
     app: django
     tier: app
-  type: LoadBalancer
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/app-root: /
+  name: nginx-example
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: www.project-stambul.ru
+    http:
+      paths:
+      - path: /ui
+        pathType: Prefix
+        backend:
+          service:
+            name: django
+            port:
+              number: 8000
